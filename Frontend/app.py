@@ -17,25 +17,22 @@ import matplotlib.pyplot as plt
 import joblib
 
 # loading the models
-diabetes_model = joblib.load("models/diabetes_model.sav")
-heart_model = joblib.load("models/heart_disease_model.sav")
-parkinson_model = joblib.load("models/parkinsons_model.sav")
-# Load the lung cancer prediction model
-lung_cancer_model = joblib.load('models/lung_cancer_model.sav')
+import joblib
+import os
 
-# Load the pre-trained model
-breast_cancer_model = joblib.load('models/breast_cancer.sav')
+# Define base path relative to this file
+BASE_DIR = os.path.dirname(os.path.abspath("Frontend/app.py"))
+MODEL_DIR = os.path.join(BASE_DIR, "..", "models")
 
-# Load the pre-trained model
-chronic_disease_model = joblib.load('models/chronic_model.sav')
-
-# Load the hepatitis prediction model
-hepatitis_model = joblib.load('models/hepititisc_model.sav')
-
-
-liver_model = joblib.load('models/liver_model.sav')# Load the lung cancer prediction model
-lung_cancer_model = joblib.load('models/lung_cancer_model.sav')
-
+# Load all models with safe paths
+diabetes_model = joblib.load(os.path.join(MODEL_DIR, "diabetes_model.sav"))
+heart_model = joblib.load(os.path.join(MODEL_DIR, "heart_disease_model.sav"))
+parkinson_model = joblib.load(os.path.join(MODEL_DIR, "parkinsons_model.sav"))
+lung_cancer_model = joblib.load(os.path.join(MODEL_DIR, "lung_cancer_model.sav"))
+breast_cancer_model = joblib.load(os.path.join(MODEL_DIR, "breast_cancer.sav"))
+chronic_disease_model = joblib.load(os.path.join(MODEL_DIR, "chronic_model.sav"))
+hepatitis_model = joblib.load(os.path.join(MODEL_DIR, "hepititisc_model.sav"))
+liver_model = joblib.load(os.path.join(MODEL_DIR, "liver_model.sav"))
 
 # sidebar
 with st.sidebar:
